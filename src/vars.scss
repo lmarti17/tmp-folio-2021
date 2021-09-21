@@ -1,0 +1,135 @@
+// @Colors - $color-${color_name}__${color_variation}
+
+$color--black: #000;
+$color--white: #fff;
+
+$color--blue: #0368b3;
+$color--blue__dark: #13293d;
+$color--green: #32a88d;
+$color--green__light: #7ec8be;
+$color--green__pale: #e5eeec;
+$color--petrol: #02a8b3;
+$color--red: #e33e66;
+$color--yellow: #ffde62;
+$color--orange: #f7aa2b;
+$color--grey: #efefef;
+$color--grey__dark: #5b5b5b;
+$color--grey__light: #e8eef2;
+
+// @Easing - $easing-${easing_name}
+//
+
+$easing-default: cubic-bezier(0.19, 1, 0.22, 1);
+
+// @Mixins
+
+@mixin breakpoint($point) {
+  @if $point == $bp-large {
+    @media only screen and (max-width: $bp-large) {
+      @content;
+    }
+  }
+  @if $point == $bp-custom-gallery {
+    @media only screen and (max-width: $bp-custom-gallery) {
+      @content;
+    }
+  }
+  @if $point == $bp-medium {
+    @media only screen and (max-width: $bp-medium) {
+      @content;
+    }
+  }
+  @if $point == $bp-small {
+    @media only screen and (max-width: $bp-small) {
+      @content;
+    }
+  }
+  @if $point == $bp-xSmall {
+    @media only screen and (max-width: $bp-xSmall) {
+      @content;
+    }
+  }
+  @if $point == $bp-xxSmall {
+    @media only screen and (max-width: $bp-xxSmall) {
+      @content;
+    }
+  }
+  @if $point == $bp-mobile {
+    @media only screen and (max-width: $bp-mobile) {
+      @content;
+    }
+  }
+  @if $point == mobilePortrait {
+    @media only screen and (max-width: $bp-xSmall) and (orientation: landscape) {
+      @content;
+    }
+  } @else {
+    @media only screen and (max-width: $point) {
+      @content;
+    }
+  }
+}
+
+// @Breakpoint $bp-${breakpoint_value}
+//
+
+$bp-Xlarge: 1351px;
+$bp-large: 1350px;
+$bp-medium: 1280px;
+$bp-small: 1024px;
+$bp-xSmall: 768px;
+$bp-xxSmall: 650px;
+$bp-mobile: 760px;
+
+// @Fonts - $font-${font_name}
+//
+
+$font-roboto: "roboto", sans-serif;
+
+// @Text - $text-${text_style}
+
+@mixin text--hero__headline() {
+  font-weight: bold;
+  font-size: 6.4rem;
+  line-height: 7.04rem;
+}
+
+@mixin text--hero__subhead() {
+  font-weight: 500;
+  font-size: 2.7rem;
+  line-height: 3.78rem;
+}
+
+@mixin text--section__headline() {
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  letter-spacing: 5%;
+}
+
+@mixin text--subhead() {
+  font-size: 2.1rem;
+  line-height: 3.15rem;
+}
+
+@mixin text--h1() {
+  font-weight: 500;
+  font-size: 4.6rem;
+  line-height: 5.52rem;
+}
+
+@mixin text--h2() {
+  font-weight: 500;
+  font-size: 3.6rem;
+  line-height: 4.32rem;
+}
+
+@mixin text--h3() {
+  font-weight: 500;
+  font-size: 2.4rem;
+  line-height: 2.88rem;
+}
+
+@mixin text--body() {
+  font-size: 1.8rem;
+  line-height: 2.79rem;
+}
