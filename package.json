@@ -1,0 +1,21 @@
+{
+  "name": "parcel-plate",
+  "version": "1.0.0",
+  "description": "Parcel starter including scss and hmr",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel ./src/index.html --port 3000",
+    "clear": "rm -rf ./dist node_modules/.cache .cache",
+    "build": "rm -rf ./dist ./cache && parcel build src/index.html  --public-url ./dist/ --no-minify --no-source-maps"
+  },
+  "author": "Lucas Martin <contact@lucasmartin.fr>",
+  "license": "ISC",
+  "dependencies": {
+    "parcel-bundler": "^1.12.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "posthtml-modules": "^0.7.4",
+    "sass": "^1.26.5"
+  }
+}

@@ -1,0 +1,138 @@
+@import "./vars.scss";
+
+#home {
+  max-width: 1425px;
+  margin: auto;
+  color: var(--color-white);
+  position: relative;
+
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("assets/background.png") repeat-y;
+    background-size: 100%;
+  }
+
+  .intro,
+  .content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .intro {
+    margin: 100px 0 150px;
+    h1,
+    h2 {
+      font-family: var(--font-neutral), "Open Sans", "Helvetica Neue",
+        sans-serif;
+      color: var(--color-grey);
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 181px;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: 54px;
+      line-height: 1.13;
+      text-align: right;
+    }
+  }
+
+  .content {
+    display: grid;
+    margin-bottom: 100px;
+    grid-template-columns: repeat(auto-fill, 260px);
+    // grid-template-rows: repeat(auto-fill, 260px);
+
+    &__block {
+      grid-column: 4 / span 2;
+      margin-bottom: 75px;
+
+      &.about {
+        grid-column: 4 / span 3;
+        margin-bottom: 100px;
+      }
+
+      h3 {
+        font-family: var(--font-neutral);
+        letter-spacing: 1px;
+        font-weight: bold;
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+      }
+      li {
+        list-style-type: none;
+        position: relative;
+        padding-left: 25px;
+
+        i {
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+
+          position: absolute;
+          bottom: 10px;
+          left: 0;
+
+          svg {
+            width: 100%;
+            height: 100%;
+
+            path {
+              stroke-dasharray: 0 2px;
+              stroke-dashoffset: 0;
+            }
+          }
+        }
+        a {
+          font-family: var(--font-open-sans);
+          font-weight: 300;
+          color: inherit;
+          font-size: 2.2rem;
+          line-height: 1.8;
+          text-decoration: none;
+
+          position: relative;
+          &:after {
+            position: absolute;
+            width: 0;
+            height: 1.5px;
+            background-color: var(--color-white);
+            right: 0;
+            content: "";
+            bottom: -2px;
+            transition-property: width;
+            transition-duration: 475ms;
+            transition-timing-function: cubic-bezier(0.37, 0.78, 0.5, 0.97);
+          }
+
+          &:hover:after {
+            left: 0;
+            width: 100%;
+            right: auto;
+          }
+        }
+      }
+    }
+
+    .about {
+      font-size: 2.2rem;
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    .live-since {
+      grid-column: 1 / span 2;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: var(--font-neutral);
+    }
+  }
+}
