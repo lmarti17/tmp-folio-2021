@@ -29,11 +29,6 @@ $easing-default: cubic-bezier(0.19, 1, 0.22, 1);
       @content;
     }
   }
-  @if $point == $bp-custom-gallery {
-    @media only screen and (max-width: $bp-custom-gallery) {
-      @content;
-    }
-  }
   @if $point == $bp-medium {
     @media only screen and (max-width: $bp-medium) {
       @content;
