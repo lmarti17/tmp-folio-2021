@@ -8,24 +8,42 @@ precision mediump float;
 
 // this is the same variable we declared in the vertex shader
 // we need to declare it here too!
-varying vec2 vTexCoord;
 uniform float time;
 
-void main() {
+varying vec2 vUv;
+uniform vec2 size;
+uniform vec3 color1_min;
+uniform vec3 color1_max;
+uniform vec3 color2_min;
+uniform vec3 color2_max;
 
-  // copy the vTexCoord
-  // vTexCoord is a value that goes from 0.0 - 1.0 depending on the pixels location
+uniform float scroll;
+
+vec3 rgb(vec3 color){
+  return vec3(color.x / 255.0, color.y/ 255.0, color.z / 255.0);
+}
+
+void main(void) {
+
+  // copy the vUv
+  // vUv is a value that goes from 0.0 - 1.0 depending on the pixels location
   // we can use it to access every pixel on the screen
-  vec2 coord = vTexCoord;
 
-    // lets slow down our time variable by multiplying it by a small number
+  vec3 col1_min = rgb(color1_min); // rgb(236, 90, 70)
+  vec3 col1_max = rgb(color1_max); // rgb(197, 63, 47)
+  vec3 col2_min = rgb(color2_min); // rgb(174, 154, 135)
+  vec3 col2_max = rgb(color2_max); // rgb(203, 188, 144)
+
+  vec2 gradient_center = vec2(0, min(0.8 + scroll, 1.0));
+
+  // lets slow down our time variable by multiplying it by a small number
   // try changing the speed
   
-  float slowTime = time * 0.00005;
+  float slowTime = time * 0.00025;
+
+  vec3 color = mix(mix(col1_min, col1_max, abs(sin(slowTime))), mix(col2_min, col2_max, abs(sin(slowTime))), distance(vUv, gradient_center));
   
-  vec3 color = 0.5 + 0.5 * cos(time + coord.xyx + vec3(0.0, 2.0, 4.0));
+
   gl_FragColor = vec4(color, 1.0);
-  
-  // x values for red, y values for green, both for blue
-  // gl_FragColor = vec4(coord.x , coord.y , coord.x+coord.y, 1.0 );
 }
+

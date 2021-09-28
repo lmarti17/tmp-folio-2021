@@ -101,8 +101,8 @@ class App {
       delay: 0.5,
       defaults: {
         stagger: {
-          each: 0.08,
-          from: "start",
+          each: 0.02,
+          from: "random",
         },
       },
     });
@@ -112,7 +112,7 @@ class App {
       {
         y: 0,
         ease: "title",
-        duration: 2.5,
+        duration: 3,
       }
     )
       .fromTo(
@@ -121,13 +121,15 @@ class App {
         {
           opacity: 1,
           ease: "opacity",
-          duration: 1,
+          duration: 1.25,
         },
         0
       )
       .fromTo(
         ".subtitle__fragments",
-        { y: 60 },
+        {
+          y: 60,
+        },
         {
           y: 0,
           duration: 0.8,
