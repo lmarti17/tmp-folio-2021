@@ -16,7 +16,7 @@ function disableBodyScroll() {
   // document.body.style.right = "0";
 }
 
-disableBodyScroll();
+// disableBodyScroll();
 
 function enableBodyScroll() {
   const scrollY = document.body.style.top;
@@ -132,9 +132,9 @@ class App {
         },
       },
       onComplete: () => {
-        // enableBodyScroll();
         // set event listeners
         this.addEventListeners();
+        // enableBodyScroll();
       },
     });
     tl.fromTo(
@@ -212,7 +212,7 @@ class App {
       );
       if (distance < 350) {
         gsap.to(this.titleLetters[index], {
-          y: numberMap(distance, 0, 350, -50, 0),
+          y: numberMap(distance, 0, 350, -40, 0),
           duration: 0.4,
           ease: "opacity",
         });
