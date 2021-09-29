@@ -164,6 +164,5 @@ class App {
 }
 
 window.addEventListener("load", () => {
-  console.log("ok");
   new App();
 });
