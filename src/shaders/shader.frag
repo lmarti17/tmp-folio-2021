@@ -11,11 +11,12 @@ precision mediump float;
 uniform float time;
 
 varying vec2 vUv;
-uniform vec2 size;
+uniform float size;
 uniform vec3 color1_min;
 uniform vec3 color1_max;
 uniform vec3 color2_min;
 uniform vec3 color2_max;
+uniform vec2 center;
 
 uniform float scroll;
 
@@ -34,7 +35,8 @@ void main(void) {
   vec3 col2_min = rgb(color2_min); // rgb(174, 154, 135)
   vec3 col2_max = rgb(color2_max); // rgb(203, 188, 144)
 
-  vec2 gradient_center = vec2(0, min(0.8 + scroll, 1.0));
+  vec2 gradient_center = vec2(center.x, min(center.y + scroll, 1.1));
+  
 
   // lets slow down our time variable by multiplying it by a small number
   // try changing the speed

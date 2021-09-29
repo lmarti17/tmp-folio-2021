@@ -1,4 +1,3 @@
-import p5 from "p5";
 import vert from "../shaders/shader.vert";
 import frag from "../shaders/shader.frag";
 
@@ -9,9 +8,8 @@ function sketch(myp5) {
   myp5.setup = () => {
     myp5.rectMode(myp5.CENTER);
 
-    myp5.setAttributes("antialias", true);
-    myp5.pixelDensity(window.devicePixelRatio);
-
+    // myp5.setAttributes("antialias", true);
+    // myp5.pixelDensity(window.devicePixelRatio);
     // shaders require WEBGL mode to work
     myp5.createCanvas(window.innerWidth, window.innerHeight, myp5.WEBGL);
 
@@ -25,6 +23,7 @@ function sketch(myp5) {
     theShader.setUniform("color1_max", [197, 63, 47]);
     theShader.setUniform("color2_min", [174, 154, 135]);
     theShader.setUniform("color2_max", [203, 188, 144]);
+    theShader.setUniform("center", [0, 0.8]);
 
     window.addEventListener("scroll", (e) => {
       theShader.setUniform(

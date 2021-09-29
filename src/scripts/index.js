@@ -70,8 +70,8 @@ class App {
     this.title = document.getElementById("title");
     fitty(this.title);
     this.subtitle = document.getElementById("subtitle");
-    // fitty(this.subtitle);
 
+    // SPLIT TITLES & SUBTITLE
     charming(this.title, { setClassName: () => "title__fragments" });
     charming(this.subtitle, {
       setClassName: () => "subtitle__fragments",
@@ -79,6 +79,15 @@ class App {
         return string.match(/.{1,2}/g);
       },
     });
+
+    // UPDATE LIVE SINCE
+    let tag = document.getElementById("live-since-day");
+
+    const baseDate = new Date("09/20/2021");
+    const nowDate = new Date();
+    tag.innerHTML = Math.floor((nowDate - baseDate) / 1000 / 60 / 60);
+
+    // this.addEventListener();
 
     // Launch animation when DOM is ready
     this.animate();
@@ -157,5 +166,18 @@ class App {
         },
         "-=0.4"
       );
+  }
+
+  addEventListener() {
+    document
+      .getElementById("mail")
+      .addEventListener("mouseover", ({ pageX, pageY }) => {
+        gsap.to("#copyIcon", {
+          x: pageX,
+          y: pageY,
+          duration: 0.25,
+          ease: "subtitle",
+        });
+      });
   }
 }
