@@ -4,6 +4,29 @@ import { CustomEase } from "gsap/CustomEase";
 
 gsap.registerPlugin(CustomEase);
 
+function numberMap(num, in_min, in_max, out_min, out_max) {
+  return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
+}
+
+function disableBodyScroll() {
+  // document.body.style.top = `-${window.scrollY}px`;
+  document.body.style.top = 0;
+  // document.body.style.position = "fixed";
+  // document.body.style.left = "0";
+  // document.body.style.right = "0";
+}
+
+disableBodyScroll();
+
+function enableBodyScroll() {
+  const scrollY = document.body.style.top;
+  document.body.style.position = "";
+  document.body.style.top = "";
+  document.body.style.left = "";
+  document.body.style.right = "";
+  scrollY && window.scrollTo(0, parseInt(scrollY) * -1);
+}
+
 function charming(
   element,
   {
@@ -108,6 +131,11 @@ class App {
           from: "random",
         },
       },
+      onComplete: () => {
+        // enableBodyScroll();
+        // set event listeners
+        this.addEventListeners();
+      },
     });
     tl.fromTo(
       ".title__fragments",
@@ -161,6 +189,42 @@ class App {
         "-=0.4"
       );
   }
+
+  addEventListeners() {
+    this.titleLetters = Array.from(
+      document.getElementsByClassName("title__fragments")
+    );
+    this.titleLettersCoords = this.titleLetters.map((el) => {
+      let coords = el.getBoundingClientRect();
+      return {
+        x: coords.x + coords.width / 2,
+        y: coords.y + coords.height / 2,
+      };
+    });
+
+    window.addEventListener("mousemove", this.handleTitleAnimation);
+  }
+
+  handleTitleAnimation = ({ pageX, pageY }) => {
+    this.titleLettersCoords.forEach((el, index) => {
+      let distance = Math.sqrt(
+        Math.pow(el.x - pageX, 2) + Math.pow(el.y - pageY, 2)
+      );
+      if (distance < 350) {
+        gsap.to(this.titleLetters[index], {
+          y: numberMap(distance, 0, 350, -50, 0),
+          duration: 0.4,
+          ease: "opacity",
+        });
+      } else {
+        gsap.to(this.titleLetters[index], {
+          y: 0,
+          duration: 0.25,
+          ease: "opacity",
+        });
+      }
+    });
+  };
 }
 
 window.addEventListener("load", () => {

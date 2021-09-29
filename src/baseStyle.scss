@@ -120,6 +120,12 @@ th {
   // colors
   --color-grey: #dadbdc;
   --color-white: #ffffff;
+  --color-orange: rgb(197, 63, 47);
+  --color-sand: rgb(203, 188, 144);
+}
+
+::selection {
+  background: var(--color-orange);
 }
 
 html {
@@ -130,8 +136,8 @@ html {
 body {
   background: radial-gradient(
     circle at 0% 20%,
-    rgb(197, 63, 47) 0%,
-    rgb(203, 188, 144) 100%
+    var(--color-orange) 0%,
+    var(--color-sand) 100%
   );
   // background-color: var(--color-grey);
   background-size: 100vw 100vh;

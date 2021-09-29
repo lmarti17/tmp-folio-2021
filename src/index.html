@@ -4,8 +4,8 @@
 <head>
   <meta charSet="utf-8" />
   <meta httpEquiv="x-ua-compatible" content="ie=edge" key="httpEquiv" />
-  <meta name="robots" content="index,follow" key="robots" />
-  <meta name="googlebot" content="index,follow" key="googlebot" />
+  <meta name="robots" content="noindex,nofollow" key="robots" />
+  <meta name="googlebot" content="noindex,nofollow" key="googlebot" />
   <meta name="description" content="I'm a freelance interactive developer focusing on merging design with programming to create interactive digital
       experiences. Contact: contact@lucasmartin.fr" key="description" />
   <meta name="author" content="Lucas Martin" />
@@ -21,7 +21,7 @@
   <meta property="og:description" content="I'm a freelance interactive developer focusing on merging design with programming to create interactive digital
       experiences. Contact: contact@lucasmartin.fr" key="og:description" />
   <meta property="og:url" content="https://lucasmartin.fr" key="og:url" />
-  <meta property="og:image" content="https://lucasmartin.fr/share.png" key="og:image" />
+  <meta property="og:image" content="./assets/share.png" key="og:image" />
   <meta property="og:image:width" content="1300" key="og:image:width" />
   <meta property="og:image:height" content="732" key="og:image:height" />
   <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
@@ -166,20 +166,23 @@
             technologies to bring an innovative user experience.
             <br>
             <br>
-            I'm avaible for freelance, contact me at <i id="mail">contact@lucasmartin.fr</i>.</span>
+            I'm avaible for freelance, contact me at <i id="mail" onclick="copy()">contact@lucasmartin.fr</i>.</span>
         </p>
-        <!-- <svg id="copyIcon" height="100%" viewBox="0 0 16 16" version="1.1" width="100%">
-                  <path fill-rule="evenodd" fill="white"
-                    d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z">
-                  </path>
-                  <path fill-rule="evenodd" fill="white"
-                    d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z">
-                  </path>
-                  </svg> -->
+
       </div>
       <p class="live-since animatedIn"><span>"This page is live since <em id="live-since-day">0</em> hours"</span></p>
     </div>
   </div>
+  <script>
+    function copy(text) {
+        var inputc = document.body.appendChild(document.createElement("input"));
+        inputc.value = "contact@lucasmartin.fr";
+        inputc.focus();
+        inputc.select();
+        document.execCommand("copy");
+        inputc.parentNode.removeChild(inputc);
+      }
+  </script>
   <script type="module" src="./scripts/background.js"></script>
   <script type="module" src="./scripts/index.js"></script>
 

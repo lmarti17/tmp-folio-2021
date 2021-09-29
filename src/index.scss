@@ -37,6 +37,9 @@
       line-height: 1.2;
       text-align: center;
       // width: 100%;
+      &:hover {
+        cursor: default;
+      }
 
       @include breakpoint($bp-xxSmall) {
         margin-bottom: 15px;
@@ -90,6 +93,7 @@
     &__block {
       grid-column: 2;
       margin-bottom: 75px;
+      padding-left: 1px;
 
       &.about {
         grid-column: 2;
@@ -106,13 +110,15 @@
         margin-bottom: 30px;
         overflow: hidden;
         will-change: translate;
-        // padding: 1px;
+        padding-left: 1px;
+
         @include breakpoint($bp-xxSmall) {
           font-size: 1.8rem;
           margin-bottom: 10px;
         }
       }
       li {
+        padding-left: 1px;
         list-style-type: none;
         position: relative;
         overflow: hidden;
@@ -134,7 +140,7 @@
           svg {
             path {
               transition-property: stroke-dashoffset;
-              transition-duration: 500ms;
+              transition-duration: 550ms;
               transition-timing-function: cubic-bezier(0.3, 0.63, 0.42, 0.96);
             }
 
@@ -163,9 +169,6 @@
 
             path {
               stroke: var(--color-white);
-              // transition-property: stroke-dashoffset;
-              // transition-duration: 750ms;
-              // transition-timing-function: cubic-bezier(0.3, 0.63, 0.42, 0.96);
 
               &.edge {
                 stroke-dasharray: 328px 328px;
@@ -214,13 +217,15 @@
 
       .animatedIn {
         overflow: hidden;
+        padding-left: 1px;
         span {
           display: inline-block;
 
           #mail {
-            cursor: pointer;
+            cursor: copy;
             font-style: initial;
             position: relative;
+
             &:after {
               position: absolute;
               width: 0;
