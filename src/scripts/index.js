@@ -53,10 +53,6 @@ function charming(
   })(element);
 }
 
-window.addEventListener("load", () => {
-  new App();
-});
-
 class App {
   constructor() {
     this.wH = window.innerHeight;
@@ -86,8 +82,6 @@ class App {
     const baseDate = new Date("09/20/2021");
     const nowDate = new Date();
     tag.innerHTML = Math.floor((nowDate - baseDate) / 1000 / 60 / 60);
-
-    // this.addEventListener();
 
     // Launch animation when DOM is ready
     this.animate();
@@ -167,17 +161,9 @@ class App {
         "-=0.4"
       );
   }
-
-  addEventListener() {
-    document
-      .getElementById("mail")
-      .addEventListener("mouseover", ({ pageX, pageY }) => {
-        gsap.to("#copyIcon", {
-          x: pageX,
-          y: pageY,
-          duration: 0.25,
-          ease: "subtitle",
-        });
-      });
-  }
 }
+
+window.addEventListener("load", () => {
+  console.log("ok");
+  new App();
+});
