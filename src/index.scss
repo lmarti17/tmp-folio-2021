@@ -18,6 +18,37 @@
     display: inline-block;
   }
 
+  .link {
+    font-family: var(--font-open-sans);
+    font-weight: 300;
+    color: inherit;
+    font-size: 2.2rem;
+    line-height: 1.8;
+    text-decoration: none;
+    display: inline-block;
+
+    position: relative;
+    &:hover {
+      &:after {
+        left: 0;
+        width: 100%;
+        right: auto;
+      }
+    }
+    &:after {
+      position: absolute;
+      width: 0;
+      height: 1.5px;
+      background-color: var(--color-white);
+      right: 0;
+      content: "";
+      bottom: 4px;
+      transition-property: width;
+      transition-duration: 475ms;
+      transition-timing-function: cubic-bezier(0.37, 0.78, 0.5, 0.97);
+    }
+  }
+
   .intro {
     margin: 75px 0 140px;
 
@@ -184,29 +215,6 @@
             }
           }
         }
-        a {
-          font-family: var(--font-open-sans);
-          font-weight: 300;
-          color: inherit;
-          font-size: 2.2rem;
-          line-height: 1.8;
-          text-decoration: none;
-          display: inline-block;
-
-          position: relative;
-          &:after {
-            position: absolute;
-            width: 0;
-            height: 1.5px;
-            background-color: var(--color-white);
-            right: 0;
-            content: "";
-            bottom: 0;
-            transition-property: width;
-            transition-duration: 475ms;
-            transition-timing-function: cubic-bezier(0.37, 0.78, 0.5, 0.97);
-          }
-        }
       }
     }
 
@@ -218,6 +226,7 @@
       .animatedIn {
         overflow: hidden;
         padding-left: 1px;
+
         span {
           display: inline-block;
 
@@ -225,37 +234,8 @@
             cursor: copy;
             font-style: initial;
             position: relative;
-
-            &:after {
-              position: absolute;
-              width: 0;
-              height: 1.5px;
-              background-color: var(--color-white);
-              right: 0;
-              content: "";
-              bottom: -2px;
-              transition-property: width;
-              transition-duration: 475ms;
-              transition-timing-function: cubic-bezier(0.37, 0.78, 0.5, 0.97);
-            }
-            &:hover {
-              &:after {
-                left: 0;
-                width: 100%;
-                right: auto;
-              }
-            }
           }
         }
-      }
-      #copyIcon {
-        position: absolute;
-        display: inline-block;
-        top: 0;
-        left: 0;
-        width: 16px;
-        height: 16px;
-        mix-blend-mode: difference;
       }
     }
 
