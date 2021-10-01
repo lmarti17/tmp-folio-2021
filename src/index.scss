@@ -4,6 +4,7 @@
   color: var(--color-white);
   position: relative;
   padding: 0 50px;
+  opacity: 0;
 
   @include breakpoint($bp-xxSmall) {
     padding: 0 20px;
@@ -67,6 +68,7 @@
       font-size: 181px;
       line-height: 1.2;
       text-align: center;
+
       // width: 100%;
       &:hover {
         cursor: default;
@@ -222,6 +224,10 @@
       font-size: 2.2rem;
       line-height: 1.5;
       font-weight: 300;
+
+      p {
+        margin-bottom: 20px;
+      }
 
       .animatedIn {
         overflow: hidden;

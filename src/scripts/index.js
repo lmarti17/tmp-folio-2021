@@ -99,6 +99,8 @@ class App {
       },
     });
 
+    gsap.set("#home", { opacity: 1 });
+
     // UPDATE LIVE SINCE
     let tag = document.getElementById("live-since-day");
 
