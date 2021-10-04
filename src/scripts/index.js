@@ -153,7 +153,7 @@ class App {
     });
 
     tl.fromTo(
-      "#mask_black",
+      "#maskBlack",
       { attr: { rx: 0, ry: 0 } },
       {
         attr: {

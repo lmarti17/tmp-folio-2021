@@ -211,6 +211,7 @@
 
             path {
               stroke: var(--color-white);
+              stroke-width: 50;
 
               &.edge {
                 stroke-dasharray: 328px 328px;

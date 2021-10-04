@@ -1,0 +1,15 @@
+{
+  "plugins": [
+    {
+      "name": "preset-default",
+      "params": {
+        "overrides": {
+          "convertShapeToPath": {
+            "convertArcs": false
+          },
+          "removeUselessStrokeAndFill": false
+        }
+      }
+    }
+  ]
+}
