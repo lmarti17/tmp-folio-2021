@@ -146,19 +146,31 @@ class App {
       },
       onComplete: () => {
         // set event listeners
-        this.addEventListeners();
+        if (!isMobile && !isTablet) {
+          this.addEventListeners();
+        }
       },
     });
+
     tl.fromTo(
-      "#layer",
-      { y: 0 },
+      "#mask_black",
+      { attr: { rx: 0, ry: 0 } },
       {
-        y: -window.innerHeight - 100,
+        attr: {
+          rx: Math.sqrt(5000),
+          ry: Math.sqrt(3000),
+        },
         duration: 1.5,
-        ease: CustomEase.create("cubic", ".14,.6,.42,1.01"),
+        ease: CustomEase.create(
+          "intro",
+          "M0,0 C0,0 0.005,0.077 0.134,0.206 0.19,0.262 0.486,0.301 0.556,0.364 0.699,0.493 0.684,0.728 0.762,0.868 0.841,1.011 1,1 1,1 "
+        ),
+        onComplete: () => {
+          let layer = document.getElementById("layer");
+          layer.parentNode.removeChild(layer);
+        },
       }
     );
-
     tl.to(
       ".hello span",
       {
@@ -170,7 +182,7 @@ class App {
           each: 0.13,
         },
       },
-      "-=0.5"
+      "-=0.75"
     );
     tl.to(".hello span", {
       y: -30,
