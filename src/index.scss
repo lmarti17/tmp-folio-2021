@@ -4,10 +4,9 @@
   color: var(--color-white);
   position: relative;
   padding: 0 50px;
-  opacity: 0;
 
-  @include breakpoint($bp-xxSmall) {
-    padding: 0 20px;
+  @include breakpoint($bp-small) {
+    padding: 0 15px;
   }
 
   .intro,
@@ -27,8 +26,12 @@
     line-height: 1.8;
     text-decoration: none;
     display: inline-block;
-
     position: relative;
+
+    @include breakpoint($bp-xxSmall) {
+      touch-action: none;
+    }
+
     &:hover {
       &:after {
         left: 0;
@@ -85,8 +88,12 @@
 
         &:nth-child(6) {
           width: 60px;
+
+          @include breakpoint($bp-small) {
+            width: 40px;
+          }
           @include breakpoint($bp-xxSmall) {
-            width: 10px;
+            width: 6px;
           }
         }
       }
@@ -104,7 +111,7 @@
         will-change: translate;
         // transform: translate3d(-30px, 0, 0);
         &:nth-child(6) {
-          margin-right: 25px;
+          margin-right: 18px;
           @include breakpoint($bp-xxSmall) {
             width: 8px;
           }
@@ -113,6 +120,8 @@
 
       @include breakpoint($bp-xxSmall) {
         font-size: 30px;
+        display: flex !important;
+        justify-content: center;
       }
     }
   }
@@ -259,6 +268,35 @@
       }
     }
   }
+
+  .hello {
+    font-family: var(--font-open-sans);
+    font-weight: 300;
+    color: var(--color-white);
+    font-size: 2.2rem;
+    overflow: hidden;
+    position: fixed;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    z-index: 2;
+
+    span {
+      transform: translate3d(0, 30px, 0);
+      display: inline-block;
+    }
+  }
+}
+
+#layer {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--color-white);
+  z-index: 3;
 }
 
 .p5Canvas {

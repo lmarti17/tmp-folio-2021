@@ -2,6 +2,9 @@ import fitty from "fitty";
 import { gsap } from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 
+const isMobile = window.innerWidth < 768;
+const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+
 gsap.registerPlugin(CustomEase);
 
 function numberMap(num, in_min, in_max, out_min, out_max) {
@@ -9,14 +12,14 @@ function numberMap(num, in_min, in_max, out_min, out_max) {
 }
 
 function disableBodyScroll() {
-  // document.body.style.top = `-${window.scrollY}px`;
+  document.body.style.top = `-${window.scrollY}px`;
   document.body.style.top = 0;
-  // document.body.style.position = "fixed";
-  // document.body.style.left = "0";
-  // document.body.style.right = "0";
+  document.body.style.position = "fixed";
+  document.body.style.left = "0";
+  document.body.style.right = "0";
 }
 
-// disableBodyScroll();
+disableBodyScroll();
 
 function enableBodyScroll() {
   const scrollY = document.body.style.top;
@@ -87,8 +90,18 @@ class App {
   prepareDOM() {
     // TITLES
     this.title = document.getElementById("title");
-    fitty(this.title);
+
     this.subtitle = document.getElementById("subtitle");
+    if (isMobile) {
+      fitty(this.title, { maxSize: 45 });
+      fitty(this.subtitle, { maxSize: 22 });
+    }
+    if (isTablet) {
+      fitty(this.subtitle);
+    }
+    if (!isMobile) {
+      fitty(this.title);
+    }
 
     // SPLIT TITLES & SUBTITLE
     charming(this.title, { setClassName: () => "title__fragments" });
@@ -99,12 +112,10 @@ class App {
       },
     });
 
-    gsap.set("#home", { opacity: 1 });
-
     // UPDATE LIVE SINCE
     let tag = document.getElementById("live-since-day");
 
-    const baseDate = new Date("09/20/2021");
+    const baseDate = new Date("10/01/2021");
     const nowDate = new Date();
     tag.innerHTML = Math.floor((nowDate - baseDate) / 1000 / 60 / 60);
 
@@ -126,7 +137,7 @@ class App {
     );
 
     let tl = gsap.timeline({
-      delay: 0.5,
+      delay: 1,
       defaults: {
         stagger: {
           each: 0.02,
@@ -136,17 +147,49 @@ class App {
       onComplete: () => {
         // set event listeners
         this.addEventListeners();
-        // enableBodyScroll();
+      },
+    });
+    tl.fromTo(
+      "#layer",
+      { y: 0 },
+      {
+        y: -window.innerHeight - 100,
+        duration: 1.5,
+        ease: CustomEase.create("cubic", ".14,.6,.42,1.01"),
+      }
+    );
+
+    tl.to(
+      ".hello span",
+      {
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        stagger: {
+          from: "start",
+          each: 0.13,
+        },
+      },
+      "-=0.5"
+    );
+    tl.to(".hello span", {
+      y: -30,
+      duration: 1,
+      ease: "power3.in",
+      stagger: {
+        from: "start",
+        each: 0.13,
       },
     });
     tl.fromTo(
       ".title__fragments",
-      { y: this.wH - 200 },
+      { y: isMobile ? this.wH / 2 : this.wH },
       {
         y: 0,
         ease: "title",
         duration: 3,
-      }
+      },
+      "-=0.25"
     )
       .fromTo(
         ".title__fragments",
@@ -156,7 +199,7 @@ class App {
           ease: "opacity",
           duration: 1.25,
         },
-        0
+        "<0"
       )
       .fromTo(
         ".subtitle__fragments",
@@ -167,6 +210,7 @@ class App {
           y: 0,
           duration: 0.8,
           ease: "subtitle",
+          onComplete: () => enableBodyScroll(),
           stagger: {
             from: "start",
             each: 0.12,
@@ -228,6 +272,10 @@ class App {
     });
   };
 }
+
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
 
 window.addEventListener("load", () => {
   new App();
