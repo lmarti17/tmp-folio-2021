@@ -165,34 +165,28 @@ class App {
           "intro",
           "M0,0 C0,0 0.005,0.077 0.134,0.206 0.19,0.262 0.486,0.301 0.556,0.364 0.699,0.493 0.684,0.728 0.762,0.868 0.841,1.011 1,1 1,1 "
         ),
-        // onComplete: () => {
-        //   let layer = document.getElementById("layer");
-        //   layer.parentNode.removeChild(layer);
-        // },
+        onComplete: () => {
+          let layer = document.getElementById("layer");
+          layer.parentNode.removeChild(layer);
+        },
       }
-    );
-    tl.to(
-      ".hello span",
+    ).to(
+      "#hello span",
       {
-        y: 0,
+        y: -30,
         duration: 1,
-        ease: "power3.out",
+        ease: "power3.in",
         stagger: {
           from: "start",
           each: 0.13,
         },
+        onComplete: () => {
+          let hello = document.getElementById("hello");
+          hello.parentNode.removeChild(hello);
+        },
       },
-      "-=0.75"
+      "-=0.25"
     );
-    tl.to(".hello span", {
-      y: -30,
-      duration: 1,
-      ease: "power3.in",
-      stagger: {
-        from: "start",
-        each: 0.13,
-      },
-    });
     tl.fromTo(
       ".title__fragments",
       { y: isMobile ? this.wH / 2 : this.wH },

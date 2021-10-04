@@ -269,7 +269,7 @@
     }
   }
 
-  .hello {
+  #hello {
     font-family: var(--font-open-sans);
     font-weight: 300;
     color: var(--color-white);
@@ -283,7 +283,6 @@
     z-index: 2;
 
     span {
-      transform: translate3d(0, 30px, 0);
       display: inline-block;
     }
   }
