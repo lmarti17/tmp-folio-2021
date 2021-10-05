@@ -171,26 +171,25 @@
         span {
           padding-left: 25px;
           will-change: translate;
-        }
-
-        &:hover {
-          a:after {
-            left: 0;
-            width: 100%;
-            right: auto;
-          }
-          svg {
-            path {
-              transition-property: stroke-dashoffset;
-              transition-duration: 550ms;
-              transition-timing-function: cubic-bezier(0.3, 0.63, 0.42, 0.96);
+          &:hover {
+            a:after {
+              left: 0;
+              width: 100%;
+              right: auto;
             }
+            svg {
+              path {
+                transition-property: stroke-dashoffset;
+                transition-duration: 550ms;
+                transition-timing-function: cubic-bezier(0.3, 0.63, 0.42, 0.96);
+              }
 
-            path.main {
-              stroke-dashoffset: calc(-580px * 2);
-            }
-            path.edge {
-              stroke-dashoffset: calc(-328px * 2);
+              path.main {
+                stroke-dashoffset: calc(-580px * 2);
+              }
+              path.edge {
+                stroke-dashoffset: calc(-328px * 2);
+              }
             }
           }
         }

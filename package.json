@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "parcel ./src/index.html --port 3000",
     "clear": "rm -rf ./dist node_modules/.cache ./.parcel-cache",
-    "build": "npm run clear && parcel build src/index.html  --public-url ./dist/ --no-cache --no-source-maps",
+    "build": "npm run clear && parcel build src/index.html --no-cache --no-source-maps",
     "build-vercel": "npm run clear && parcel build src/index.html --no-cache --no-source-maps"
   },
   "author": "Lucas Martin <contact@lucasmartin.fr>",
