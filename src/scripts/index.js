@@ -144,6 +144,9 @@ class App {
           from: "random",
         },
       },
+      onStart: () => {
+        gsap.set("#home", { opacity: 1 });
+      },
       onComplete: () => {
         // set event listeners
         if (!isMobile && !isTablet) {
@@ -151,52 +154,17 @@ class App {
         }
       },
     });
-
-    tl.fromTo(
-      "#maskBlack",
-      { attr: { rx: 0, ry: 0 } },
-      {
-        attr: {
-          rx: Math.sqrt(5000),
-          ry: Math.sqrt(3000),
+    tl.to("#defaultCanvas0", { opacity: 1, ease: "opacity", duration: 2 })
+      .fromTo(
+        ".title__fragments",
+        { y: isMobile ? this.wH / 2 : this.wH - 200 },
+        {
+          y: 0,
+          ease: "title",
+          duration: 3,
         },
-        duration: 1.5,
-        ease: CustomEase.create(
-          "intro",
-          "M0,0 C0,0 0.005,0.077 0.134,0.206 0.19,0.262 0.486,0.301 0.556,0.364 0.699,0.493 0.684,0.728 0.762,0.868 0.841,1.011 1,1 1,1 "
-        ),
-        onComplete: () => {
-          let layer = document.getElementById("layer");
-          layer.parentNode.removeChild(layer);
-        },
-      }
-    ).to(
-      "#hello span",
-      {
-        y: -30,
-        duration: 1,
-        ease: "power3.in",
-        stagger: {
-          from: "start",
-          each: 0.13,
-        },
-        onComplete: () => {
-          let hello = document.getElementById("hello");
-          hello.parentNode.removeChild(hello);
-        },
-      },
-      "-=0.25"
-    );
-    tl.fromTo(
-      ".title__fragments",
-      { y: isMobile ? this.wH / 2 : this.wH },
-      {
-        y: 0,
-        ease: "title",
-        duration: 3,
-      },
-      "-=0.25"
-    )
+        "<=0.25"
+      )
       .fromTo(
         ".title__fragments",
         { opacity: 0 },
@@ -214,7 +182,7 @@ class App {
         },
         {
           y: 0,
-          duration: 0.8,
+          duration: 1,
           ease: "subtitle",
           onComplete: () => enableBodyScroll(),
           stagger: {
@@ -231,15 +199,17 @@ class App {
         },
         {
           y: 0,
-          duration: 0.8,
+          duration: 1,
           ease: "subtitle",
           stagger: {
             from: "start",
-            each: 0.13,
+            each: 0.15,
           },
         },
         "-=0.4"
       );
+
+    tl.timeScale(1.4);
   }
 
   addEventListeners() {
