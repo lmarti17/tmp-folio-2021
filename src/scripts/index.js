@@ -115,7 +115,7 @@ class App {
     // UPDATE LIVE SINCE
     let tag = document.getElementById("live-since-day");
 
-    const baseDate = new Date("10/01/2021");
+    const baseDate = new Date("10/10/2021");
     const nowDate = new Date();
     tag.innerHTML = Math.floor((nowDate - baseDate) / 1000 / 60 / 60);
 
@@ -126,22 +126,21 @@ class App {
   animate() {
     CustomEase.create(
       "title",
-      "M0,0 C0.054,0.148 0.098,0.385 0.272,0.454 0.484,0.538 0.474,0.482 0.57,0.538 0.695,0.611 0.703,0.902 0.812,0.964 0.872,0.998 0.963,1 1,1 "
+      "M0,0 C0.054,0.148 0.139,0.414 0.31,0.492 0.45,0.556 0.49,0.504 0.586,0.56 0.644,0.594 0.686,0.876 0.788,0.944 0.894,1.014 0.98,1 1,1 "
     );
 
-    CustomEase.create("opacity", ".25,.48,.68,.96");
+    CustomEase.create("opacity", ".3,.8,.55,1");
 
-    CustomEase.create(
-      "subtitle",
-      "M0,0 C0.11,0.494 0.249,0.794 0.404,0.884 0.528,0.956 0.504,1 1,1"
-    );
+    // CustomEase.create(
+    //   "subtitle",
+    //   "M0,0 C0.11,0.494 0.249,0.794 0.404,0.884 0.528,0.956 0.504,1 1,1"
+    // );
 
     let tl = gsap.timeline({
-      delay: 1,
       defaults: {
         stagger: {
           each: 0.02,
-          from: "random",
+          from: "edges",
         },
       },
       onStart: () => {
@@ -157,11 +156,11 @@ class App {
     tl.to("#defaultCanvas0", { opacity: 1, ease: "opacity", duration: 2 })
       .fromTo(
         ".title__fragments",
-        { y: isMobile ? this.wH / 2 : this.wH - 200 },
+        { y: isMobile ? this.wH / 2 : this.wH - 150 },
         {
           y: 0,
           ease: "title",
-          duration: 3,
+          duration: 2,
         },
         "<=0.25"
       )
@@ -171,9 +170,9 @@ class App {
         {
           opacity: 1,
           ease: "opacity",
-          duration: 1.25,
+          duration: 2.25,
         },
-        "<0"
+        "<=0"
       )
       .fromTo(
         ".subtitle__fragments",
@@ -182,15 +181,15 @@ class App {
         },
         {
           y: 0,
-          duration: 1,
-          ease: "subtitle",
+          duration: 0.6,
+          ease: "power2.out",
           onComplete: () => enableBodyScroll(),
           stagger: {
             from: "start",
             each: 0.12,
           },
         },
-        "-=0.35"
+        "-=0.25"
       )
       .fromTo(
         ".animatedIn span",
@@ -199,17 +198,15 @@ class App {
         },
         {
           y: 0,
-          duration: 1,
-          ease: "subtitle",
+          duration: 0.6,
+          ease: "power2.out",
           stagger: {
             from: "start",
             each: 0.15,
           },
         },
-        "-=0.4"
+        "-=0.5"
       );
-
-    tl.timeScale(1.4);
   }
 
   addEventListeners() {
