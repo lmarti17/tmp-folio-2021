@@ -1,6 +1,7 @@
 import fitty from "fitty";
 import { gsap } from "gsap";
 import { CustomEase } from "gsap/CustomEase";
+import sketch from "./background";
 
 const isMobile = window.innerWidth < 768;
 const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
@@ -88,6 +89,8 @@ class App {
   }
 
   prepareDOM() {
+    // init shader
+    this.p5sketch = new p5(sketch);
     // TITLES
     this.title = document.getElementById("title");
 
@@ -146,66 +149,67 @@ class App {
       onStart: () => {
         gsap.set("#home", { opacity: 1 });
       },
-      onComplete: () => {
-        // set event listeners
-        if (!isMobile && !isTablet) {
-          this.addEventListeners();
-        }
-      },
+      onComplete: () => this.p5sketch.loop(),
     });
-    tl.to("#defaultCanvas0", { opacity: 1, ease: "opacity", duration: 2 })
-      .fromTo(
-        ".title__fragments",
-        { y: isMobile ? this.wH / 2 : this.wH - 150 },
-        {
-          y: 0,
-          ease: "title",
-          duration: 2,
-        },
-        "<=0.25"
-      )
+    tl.to("#defaultCanvas0", { opacity: 1, ease: "opacity", duration: 2 });
+    tl.fromTo(
+      ".title__fragments",
+      { y: isMobile ? this.wH / 2 : this.wH - 150 },
+      {
+        y: 0,
+        ease: "title",
+        duration: 2,
+      },
+      "<=0.25"
+    )
       .fromTo(
         ".title__fragments",
         { opacity: 0 },
         {
           opacity: 1,
           ease: "opacity",
-          duration: 2.25,
+          duration: 1.5,
+          onComplete: () => {
+            // set event listeners
+            if (!isMobile && !isTablet) {
+              this.addEventListeners();
+            }
+          },
         },
         "<=0"
       )
       .fromTo(
         ".subtitle__fragments",
         {
-          y: 60,
+          y: "100%",
         },
         {
           y: 0,
           duration: 0.6,
-          ease: "power2.out",
+          ease: "power3.out",
           onComplete: () => enableBodyScroll(),
           stagger: {
             from: "start",
-            each: 0.12,
+            each: 0.1,
           },
         },
-        "-=0.25"
+        "-=0.20"
       )
       .fromTo(
         ".animatedIn span",
         {
-          y: "102%",
+          y: "100%",
         },
         {
           y: 0,
           duration: 0.6,
-          ease: "power2.out",
+          ease: "power3.out",
           stagger: {
             from: "start",
-            each: 0.15,
+            each: 0.1,
           },
         },
-        "-=0.5"
+        "-=0.2"
       );
   }
 

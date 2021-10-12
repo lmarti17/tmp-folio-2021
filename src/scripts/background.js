@@ -1,15 +1,14 @@
 import vert from "../shaders/shader.vert";
 import frag from "../shaders/shader.frag";
 
-function sketch(myp5) {
+export default function sketch(myp5) {
   // a shader variable
   let theShader;
 
   myp5.setup = () => {
     myp5.rectMode(myp5.CENTER);
 
-    // myp5.setAttributes("antialias", true);
-    // myp5.pixelDensity(window.devicePixelRatio);
+    myp5.pixelDensity(window.devicePixelRatio);
     // shaders require WEBGL mode to work
     myp5.createCanvas(window.innerWidth, window.innerHeight, myp5.WEBGL);
 
@@ -32,23 +31,17 @@ function sketch(myp5) {
           (document.documentElement.scrollHeight - window.innerHeight)
       );
     });
+
+    myp5.noLoop();
   };
 
   myp5.draw = () => {
-    // animation
     theShader.setUniform("time", myp5.millis());
-
     // // rect gives us some geometry on the screen
     myp5.rect(0, 0, myp5.width, myp5.height);
-
-    // print out the framerate
-
-    // myp5.print(myp5.frameRate());
   };
 
   myp5.windowResized = () => {
     myp5.resizeCanvas(window.innerWidth, window.innerHeight);
   };
 }
-
-new p5(sketch);

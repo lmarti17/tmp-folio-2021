@@ -41,7 +41,6 @@ void main(void) {
   // lets slow down our time variable by multiplying it by a small number
   // try changing the speed
   
-  // float slowTime = time * 0.00025;
   float slowTime = time * 0.0005;
   
   vec3 color = mix(mix(col1_min, col1_max, abs(sin(slowTime))), mix(col2_min, col2_max, abs(sin(slowTime))), distance(vUv, gradient_center));
