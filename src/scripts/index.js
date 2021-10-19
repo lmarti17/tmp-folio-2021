@@ -1,12 +1,14 @@
 import fitty from "fitty";
 import { gsap } from "gsap";
 import { CustomEase } from "gsap/CustomEase";
+import { TextPlugin } from "gsap/TextPlugin";
 import sketch from "./background";
 
 const isMobile = window.innerWidth < 768;
 const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
 
 gsap.registerPlugin(CustomEase);
+gsap.registerPlugin(TextPlugin);
 
 function numberMap(num, in_min, in_max, out_min, out_max) {
   return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
@@ -134,11 +136,6 @@ class App {
 
     CustomEase.create("opacity", ".3,.8,.55,1");
 
-    // CustomEase.create(
-    //   "subtitle",
-    //   "M0,0 C0.11,0.494 0.249,0.794 0.404,0.884 0.528,0.956 0.504,1 1,1"
-    // );
-
     let tl = gsap.timeline({
       defaults: {
         stagger: {
@@ -226,8 +223,13 @@ class App {
     });
 
     window.addEventListener("mousemove", this.handleTitleAnimation);
+
+    document
+      .getElementById("mail")
+      .addEventListener("click", this.handleMailClick);
   }
 
+  // Move the main letters depending on mouse position
   handleTitleAnimation = ({ pageX, pageY }) => {
     this.titleLettersCoords.forEach((el, index) => {
       let distance = Math.sqrt(
@@ -246,6 +248,42 @@ class App {
           ease: "opacity",
         });
       }
+    });
+  };
+
+  // Handle email click
+  // copy email address
+  // animate email text into feedback and backwards
+  handleMailClick = (e) => {
+    e.preventDefault();
+    var inputc = document.body.appendChild(document.createElement("input"));
+    inputc.value = "contact@lucasmartin.fr";
+    inputc.focus();
+    inputc.select();
+    document.execCommand("copy");
+    inputc.parentNode.removeChild(inputc);
+    gsap.to("#mail", {
+      duration: 0.5,
+      text: {
+        value: "copied",
+        newClass: "copied",
+      },
+      ease: "power4.out",
+      onStart: () => {
+        gsap.set("#mail", { pointerEvents: "none" });
+      },
+      onComplete: () =>
+        gsap.to("#mail", {
+          duration: 0.5,
+          delay: 1.5,
+          text: {
+            value: "contact@lucasmartin.fr",
+          },
+          onComplete: () => {
+            gsap.set("#mail", { pointerEvents: "initial" });
+          },
+          ease: "power4.out",
+        }),
     });
   };
 }
