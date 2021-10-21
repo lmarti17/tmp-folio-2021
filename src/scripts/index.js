@@ -224,9 +224,9 @@ class App {
 
     window.addEventListener("mousemove", this.handleTitleAnimation);
 
-    document
-      .getElementById("mail")
-      .addEventListener("click", this.handleMailClick);
+    let mailDom = document.getElementById("mail");
+    mailDom.addEventListener("click", this.handleMailClick);
+    mailDom.addEventListener("touchstart", this.handleMailClick);
   }
 
   // Move the main letters depending on mouse position
@@ -256,12 +256,10 @@ class App {
   // animate email text into feedback and backwards
   handleMailClick = (e) => {
     e.preventDefault();
-    var inputc = document.body.appendChild(document.createElement("input"));
-    inputc.value = "contact@lucasmartin.fr";
-    inputc.focus();
-    inputc.select();
-    document.execCommand("copy");
-    inputc.parentNode.removeChild(inputc);
+
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText("contact@lucasmartin.fr");
+    }
     gsap.to("#mail", {
       duration: 0.5,
       text: {
