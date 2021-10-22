@@ -60,6 +60,7 @@
     @include breakpoint($bp-xxSmall) {
       margin: 50px 0 75px;
     }
+
     h1,
     h2 {
       font-family: var(--font-neutral), "Open Sans", "Helvetica Neue",
@@ -130,7 +131,7 @@
   .content {
     display: grid;
     margin-bottom: 100px;
-    grid-template-columns: 1fr minmax(300px, 730px);
+    grid-template-columns: 1fr minmax(300px, 721px);
     // grid-template-rows: repeat(auto-fill, 260px);
 
     &__block {

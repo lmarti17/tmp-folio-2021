@@ -166,12 +166,6 @@ class App {
           opacity: 1,
           ease: "opacity",
           duration: 1.5,
-          onComplete: () => {
-            // set event listeners
-            if (!isMobile && !isTablet) {
-              this.addEventListeners();
-            }
-          },
         },
         "<=0"
       )
@@ -184,7 +178,13 @@ class App {
           y: 0,
           duration: 0.6,
           ease: "power3.out",
-          onComplete: () => enableBodyScroll(),
+          onComplete: () => {
+            // set event listeners
+            if (!isMobile && !isTablet) {
+              this.addEventListeners();
+            }
+            enableBodyScroll();
+          },
           stagger: {
             from: "start",
             each: 0.1,

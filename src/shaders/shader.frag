@@ -35,13 +35,13 @@ void main(void) {
   vec3 col2_min = rgb(color2_min); // rgb(174, 154, 135)
   vec3 col2_max = rgb(color2_max); // rgb(203, 188, 144)
 
-  vec2 gradient_center = vec2(center.x, min(center.y + scroll, 1.1));
+  vec2 gradient_center = vec2(center.x, min(center.y + scroll, 1.125));
   
 
   // lets slow down our time variable by multiplying it by a small number
   // try changing the speed
   
-  float slowTime = time * 0.0005;
+  float slowTime = time * 0.01;
   
   vec3 color = mix(mix(col1_min, col1_max, abs(sin(slowTime))), mix(col2_min, col2_max, abs(sin(slowTime))), distance(vUv, gradient_center));
   gl_FragColor = vec4(color, 1.0);

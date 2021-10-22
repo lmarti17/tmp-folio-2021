@@ -1,22 +1,22 @@
 import vert from "../shaders/shader.vert";
 import frag from "../shaders/shader.frag";
 
-export default function sketch(myp5) {
+export default function sketch(p5) {
   // a shader variable
   let theShader;
 
-  myp5.setup = () => {
-    myp5.rectMode(myp5.CENTER);
+  p5.setup = () => {
+    p5.rectMode(p5.CENTER);
 
-    myp5.pixelDensity(window.devicePixelRatio);
+    p5.pixelDensity(window.devicePixelRatio);
     // shaders require WEBGL mode to work
-    myp5.createCanvas(window.innerWidth, window.innerHeight, myp5.WEBGL);
+    p5.createCanvas(window.innerWidth, window.innerHeight, p5.WEBGL);
 
-    theShader = myp5.createShader(vert, frag);
+    theShader = p5.createShader(vert, frag);
 
-    myp5.noStroke();
+    p5.noStroke();
     // shader() sets the active shader with our shader
-    myp5.shader(theShader);
+    p5.shader(theShader);
 
     theShader.setUniform("color1_min", [236, 90, 70]);
     theShader.setUniform("color1_max", [197, 63, 47]);
@@ -32,16 +32,17 @@ export default function sketch(myp5) {
       );
     });
 
-    myp5.noLoop();
+    p5.noLoop();
   };
 
-  myp5.draw = () => {
-    theShader.setUniform("time", myp5.millis());
+  p5.draw = () => {
+    theShader.setUniform("time", p5.frameCount);
+
     // // rect gives us some geometry on the screen
-    myp5.rect(0, 0, myp5.width, myp5.height);
+    p5.rect(0, 0, p5.width, p5.height);
   };
 
-  myp5.windowResized = () => {
-    myp5.resizeCanvas(window.innerWidth, window.innerHeight);
+  p5.windowResized = () => {
+    p5.resizeCanvas(window.innerWidth, window.innerHeight);
   };
 }
