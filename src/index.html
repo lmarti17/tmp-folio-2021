@@ -1,205 +1,446 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charSet="utf-8" />
-  <meta httpEquiv="x-ua-compatible" content="ie=edge" key="httpEquiv" />
-  <meta name="robots" content="index,follow" key="robots" />
-  <meta name="googlebot" content="index,follow" key="googlebot" />
-  <meta name="description" content="I'm a freelance interactive developer focusing on merging design with programming to create interactive digital
-      experiences. Contact: contact@lucasmartin.fr" key="description" />
-  <meta name="author" content="Lucas Martin" />
-  <meta name="keywords" content="developer,front-end,freelance,interactive,website,lucas,martin" />
-  <meta name="geo.placename" content="Vienna, Austria" key="geo.placename" />
-  <meta property="og:locale" content="en_US" key="og:locale" />
-  <meta name="rating" content="General" key="rating" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" key="viewport" />
-  
-  <meta property="og:type" content="website" key="og:type" />
-  <meta property="og:site_name" content="Lucas Martin - Freelance Interactive Developer" key="og:site_name" />
-  <meta property="og:title" content="Lucas Martin - Freelance Interactive Developer" key="og:title" />
-  <meta property="og:description" content="I'm a freelance interactive developer focusing on merging design with programming to create interactive digital
-      experiences. Contact: contact@lucasmartin.fr" key="og:description" />
-  <meta property="og:url" content="https://lucasmartin.fr" key="og:url" />
-  <meta property="og:image" content="./assets/share.png" key="og:image" />
-  <meta property="og:image:width" content="1300" key="og:image:width" />
-  <meta property="og:image:height" content="732" key="og:image:height" />
+  <head>
+    <meta charset="utf-8" />
+    <meta httpEquiv="x-ua-compatible" content="ie=edge" key="httpEquiv" />
+    <meta name="robots" content="index,follow" key="robots" />
+    <meta name="googlebot" content="index,follow" key="googlebot" />
+    <meta
+      name="description"
+      content="I'm a freelance interactive developer focusing on merging design with programming to create interactive digital
+      experiences. Contact: contact@lucasmartin.fr"
+      key="description"
+    />
+    <meta name="author" content="Lucas Martin" />
+    <meta
+      name="keywords"
+      content="developer,front-end,freelance,interactive,website,lucas,martin"
+    />
+    <meta name="geo.placename" content="Vienna, Austria" key="geo.placename" />
+    <meta property="og:locale" content="en_US" key="og:locale" />
+    <meta name="rating" content="General" key="rating" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      key="viewport"
+    />
 
-  <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
-  <meta name="twitter:title" content="Lucas Martin - Freelance Interactive Developer" key="twitter:title" />
-  <meta name="twitter:site" content="@lmarti17">
-  <meta name="twitter:creator" content="@lmarti17">
-  <meta name="twitter:description" content="I'm a freelance interactive developer focusing on merging design with programming to create interactive digital
-      experiences. Contact: contact@lucasmartin.fr" key="twitter:description" />
-  <meta name="twitter:image" content="./assets/share-twitter.png" key="twitter:image" />
-  <meta name="twitter:image:alt" content="https://lucasmartin.fr" key="twitter:image:alt" />
-  
-  
-  <meta name="msapplication-config" content="./assets/browserconfig.xml" />
-  
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png?v=2022" />
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png?v=2022" />
-  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png?v=2022" />
-  <link rel="manifest" href="./assets/site.webmanifest?v=2022" />
-  <link rel="mask-icon" href="./assets/safari-pinned-tab.svg?v=2022" color="#2c2c2c" />
-  <link rel="shortcut icon" href="./assets/favicon.ico?v=2022" />
-  <meta name="msapplication-TileColor" content="#C53F2F" />
-  <meta name="theme-color" content="#C53F2F" />
-  <title key="title">Lucas Martin - Freelance Interactive Developer</title>
-<link rel="preconnect" href="https://cdnjs.cloudflare.com">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+    <meta property="og:type" content="website" key="og:type" />
+    <meta
+      property="og:site_name"
+      content="Lucas Martin - Freelance Interactive Developer"
+      key="og:site_name"
+    />
+    <meta
+      property="og:title"
+      content="Lucas Martin - Freelance Interactive Developer"
+      key="og:title"
+    />
+    <meta
+      property="og:description"
+      content="I'm a freelance interactive developer focusing on merging design with programming to create interactive digital
+      experiences. Contact: contact@lucasmartin.fr"
+      key="og:description"
+    />
+    <meta property="og:url" content="https://lucasmartin.fr" key="og:url" />
+    <meta property="og:image" content="./assets/share.png" key="og:image" />
+    <meta property="og:image:width" content="1300" key="og:image:width" />
+    <meta property="og:image:height" content="732" key="og:image:height" />
 
+    <meta
+      name="twitter:card"
+      content="summary_large_image"
+      key="twitter:card"
+    />
+    <meta
+      name="twitter:title"
+      content="Lucas Martin - Freelance Interactive Developer"
+      key="twitter:title"
+    />
+    <meta name="twitter:site" content="@lmarti17" />
+    <meta name="twitter:creator" content="@lmarti17" />
+    <meta
+      name="twitter:description"
+      content="I'm a freelance interactive developer focusing on merging design with programming to create interactive digital
+      experiences. Contact: contact@lucasmartin.fr"
+      key="twitter:description"
+    />
+    <meta
+      name="twitter:image"
+      content="./assets/share-twitter.png"
+      key="twitter:image"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="https://lucasmartin.fr"
+      key="twitter:image:alt"
+    />
 
-  <link rel="stylesheet" href="./baseStyle.scss" />
-  <link rel="stylesheet" href="./index.scss" />
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3X5Z80M3WS"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-3X5Z80M3WS');
-  </script>
+    <meta name="msapplication-config" content="./assets/browserconfig.xml" />
 
-  
-</head>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/apple-touch-icon.png?v=2022"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png?v=2022"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/favicon-16x16.png?v=2022"
+    />
+    <link rel="manifest" href="./assets/site.webmanifest?v=2022" />
+    <link
+      rel="mask-icon"
+      href="./assets/safari-pinned-tab.svg?v=2022"
+      color="#2c2c2c"
+    />
+    <link rel="shortcut icon" href="./assets/favicon.ico?v=2022" />
+    <meta name="msapplication-TileColor" content="#C53F2F" />
+    <meta name="theme-color" content="#C53F2F" />
+    <title key="title">Lucas Martin - Freelance Interactive Developer</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
 
-<body>
+    <link rel="stylesheet" href="./baseStyle.scss" />
+    <link rel="stylesheet" href="./index.scss" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-3X5Z80M3WS"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-3X5Z80M3WS");
+    </script>
+  </head>
 
-  <div id="home">
-
-    <div class="intro">
-      <h1 id="title">Lucas Martin</h1>
-      <h2 id="subtitle">Interactive developer</h2>
-    </div>
-    <div class="content">
-      <!-- PROJECTS -->
-      <div class="content__block">
-        <h3 class="block__headline animatedIn"><span>Selected projects</span></h3>
-        <ul>
-          <li class="animatedIn">
-            <span>
-              <module href="/partials/arrowSvg.html"></module>
-              <a href="https://mad.ac/work/dance" class="link" title="Dance.co" target="_blank" rel="noreferrer noopener">Dance.co / 2020</a>
-            </span>
-          </li>
-          <li class="animatedIn">
-            <span>
-              <module href="/partials/arrowSvg.html"></module>
-              <a href="https://buerobutter.com/" class="link" title="Buero Butter" target="_blank" rel="noreferrer noopener">Buero Butter /
-                2021</a>
-            </span>
-          </li>
-          <li class="animatedIn">
-            <span>
-              <module href="/partials/arrowSvg.html"></module>
-              <a href="https://www.rgf.holdings" class="link" title="RGF Holdings" target="_blank" rel="noreferrer noopener">RGF Holdings / 2021</a>
-            </span>
-          </li>
-
-          <li class="animatedIn">
+  <body>
+    <div id="home">
+      <div class="intro">
+        <h1 id="title">Lucas Martin</h1>
+        <h2 id="subtitle">Interactive developer</h2>
+      </div>
+      <div class="content">
+        <!-- PROJECTS -->
+        <div class="content__block">
+          <h3 class="block__headline animatedIn">
+            <span>Selected projects</span>
+          </h3>
+          <ul>
+            <li class="animatedIn">
+              <span>
+                <module href="/partials/arrowSvg.html"></module>
+                <a
+                  href="https://beige.de/"
+                  class="link"
+                  title="Beige"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >Beige / 2022</a
+                >
+              </span>
+            </li>
+            <li class="animatedIn">
+              <span>
+                <module href="/partials/arrowSvg.html"></module>
+                <a
+                  href="https://gdevelop.io/"
+                  class="link"
+                  title="GDevelop.io"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >GDevelop / 2022</a
+                >
+              </span>
+            </li>
+            <li class="animatedIn">
+              <span>
+                <module href="/partials/arrowSvg.html"></module>
+                <a
+                  href="https://buerobutter.com/"
+                  class="link"
+                  title="Buero Butter"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >Buero Butter / 2021</a
+                >
+              </span>
+            </li>
+            <li class="animatedIn">
+              <span>
+                <module href="/partials/arrowSvg.html"></module>
+                <a
+                  href="https://www.rgf.holdings"
+                  class="link"
+                  title="RGF Holdings"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >RGF Holdings / 2021</a
+                >
+              </span>
+            </li>
+            <li class="animatedIn">
+              <span>
+                <module href="/partials/arrowSvg.html"></module>
+                <a
+                  href="https://mad.ac/work/dance"
+                  class="link"
+                  title="Dance.co"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >Dance / 2020</a
+                >
+              </span>
+            </li>
+            <!-- <li class="animatedIn">
             <span>
               <module href="/partials/arrowSvg.html"></module>
               <a href="https://www.mindnode.com/" class="link" title="Mindnode" target="_blank" rel="noreferrer noopener">Mindnode / 2019</a>
             </span>
-          </li>
-          <li class="animatedIn">
-            <span>
-              <module href="/partials/arrowSvg.html"></module>
-              <a href="https://moderne.wien.info/en/" class="link" title="Wiener Moderne" target="_blank" rel="noreferrer noopener">Wiener Moderne / 2018</a>
-            </span>
-          </li>
-        </ul>
-      </div>
-      <!-- PREVIOUS PARTNERS -->
-      <div class="content__block">
-        <h3 class="block__headline animatedIn"><span>Previous Partners</span></h3>
-        <ul>
-          <li class="animatedIn">
-            <span>
-              <module href="/partials/arrowSvg.html"></module>
-              <a href="https://www.akqa.com/" class="link" title="AKQA" target="_blank" rel="noreferrer noopener">AKQA</a>
-            </span>
-          </li>
-          <li class="animatedIn">
-            <span>
-              <module href="/partials/arrowSvg.html"></module>
-              <a href="https://wild.as/" class="link" title="Wild" target="_blank" rel="noreferrer noopener">Wild</a>
-            </span>
-          </li>
-          <li class="animatedIn">
-            <span>
-              <module href="/partials/arrowSvg.html"></module>
-              <a href="https://mad.ac/" class="link" title="MAD" target="_blank" rel="noreferrer noopener">MAD</a>
-            </span>
-          </li>
-          <li class="animatedIn">
-            <span>
-              <module href="/partials/arrowSvg.html"></module>
-              <a href="https://www.wien.info/en" class="link" title="Vienna Tourism Board" target="_blank" rel="noreferrer noopener">Vienna Tourism
-                Board</a>
-            </span>
-          </li>
-          <li class="animatedIn">
-            <span>
-              <module href="/partials/arrowSvg.html"></module>
-              <a href="https://offf.media/" class="link" title="Offf Vienna" target="_blank" rel="noreferrer noopener">OFFF Vienna</a>
-            </span>
-          </li>
-        </ul>
-      </div>
-      <!-- EXPERIMENTS -->
-      <div class="content__block">
-        <h3 class="block__headline animatedIn"><span>Experiments</span></h3>
-        <ul>
-          <li class="animatedIn">
-            <span>
-              <module href="/partials/arrowSvg.html"></module>
-              <a href="https://www.konstantinreyer.com" class="link" title="Variable Font Experiment" target="_blank" rel="noreferrer noopener">Konstantin Reyer</a>
-            </span>
-          </li>
-          <li class="animatedIn">
-            <span>
-              <module href="/partials/arrowSvg.html"></module>
-              <a href="https://www.felixlohrmann.com/" class="link" title="Blend Mode Experiment" target="_blank" rel="noreferrer noopener">Felix Lohrmann</a>
-            </span>
-          </li>
-          <li class="animatedIn">
-            <span>
-              <module href="/partials/arrowSvg.html"></module>
-              <a href="https://lmarti17.github.io/offf-experiment" target="_blank" class="link" title="Offf Vienna experiment" rel="noreferrer noopener">OFFF Vienna</a>
-            </span>
-          </li>
-          <!-- <li class="animatedIn">
+          </li> -->
+            <li class="animatedIn">
+              <span>
+                <module href="/partials/arrowSvg.html"></module>
+                <a
+                  href="https://moderne.wien.info/en/"
+                  class="link"
+                  title="Wiener Moderne"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >Wiener Moderne / 2018</a
+                >
+              </span>
+            </li>
+          </ul>
+        </div>
+        <!-- PREVIOUS PARTNERS -->
+        <div class="content__block">
+          <h3 class="block__headline animatedIn">
+            <span>Previous Partners</span>
+          </h3>
+          <ul>
+            <li class="animatedIn">
+              <span>
+                <module href="/partials/arrowSvg.html"></module>
+                <a
+                  href="https://www.herve.paris/"
+                  class="link"
+                  title="Hervé Studio"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >Hervé Studio</a
+                >
+              </span>
+            </li>
+            <li class="animatedIn">
+              <span>
+                <module href="/partials/arrowSvg.html"></module>
+                <a
+                  href="https://www.akqa.com/"
+                  class="link"
+                  title="AKQA"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >AKQA</a
+                >
+              </span>
+            </li>
+            <li class="animatedIn">
+              <span>
+                <module href="/partials/arrowSvg.html"></module>
+                <a
+                  href="https://wild.as/"
+                  class="link"
+                  title="Wild"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >Wild</a
+                >
+              </span>
+            </li>
+            <li class="animatedIn">
+              <span>
+                <module href="/partials/arrowSvg.html"></module>
+                <a
+                  href="https://mad.ac/"
+                  class="link"
+                  title="MAD"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >MAD</a
+                >
+              </span>
+            </li>
+            <li class="animatedIn">
+              <span>
+                <module href="/partials/arrowSvg.html"></module>
+                <a
+                  href="https://www.wien.info/en"
+                  class="link"
+                  title="Vienna Tourism Board"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >Vienna Tourism Board</a
+                >
+              </span>
+            </li>
+            <li class="animatedIn">
+              <span>
+                <module href="/partials/arrowSvg.html"></module>
+                <a
+                  href="https://offf.media/"
+                  class="link"
+                  title="Offf Vienna"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >OFFF Vienna</a
+                >
+              </span>
+            </li>
+          </ul>
+        </div>
+        <!-- EXPERIMENTS -->
+        <div class="content__block">
+          <h3 class="block__headline animatedIn"><span>Experiments</span></h3>
+          <ul>
+            <li class="animatedIn">
+              <span>
+                <module href="/partials/arrowSvg.html"></module>
+                <a
+                  href="https://www.konstantinreyer.com"
+                  class="link"
+                  title="Variable Font Experiment"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >Konstantin Reyer</a
+                >
+              </span>
+            </li>
+            <li class="animatedIn">
+              <span>
+                <module href="/partials/arrowSvg.html"></module>
+                <a
+                  href="https://www.felixlohrmann.com/"
+                  class="link"
+                  title="Blend Mode Experiment"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >Felix Lohrmann</a
+                >
+              </span>
+            </li>
+            <li class="animatedIn">
+              <span>
+                <module href="/partials/arrowSvg.html"></module>
+                <a
+                  href="https://lmarti17.github.io/offf-experiment"
+                  target="_blank"
+                  class="link"
+                  title="Offf Vienna experiment"
+                  rel="noreferrer noopener"
+                  >OFFF Vienna</a
+                >
+              </span>
+            </li>
+            <!-- <li class="animatedIn">
             <span>
               <module href="/partials/arrowSvg.html"></module>
               <a href="https://lmarti17.github.io/2d-pixel-sorting/" target="_blank" class="link" title="2D Pixel Sorting" rel="noreferrer noopener">2D Pixel Sorting</a>
             </span>
           </li> -->
-          <li class="animatedIn">
-            <span>
-              <module href="/partials/arrowSvg.html"></module>
-              <a href="https://lmarti17.github.io/Michael-Jordan-Particles" target="_blank" class="link" title="Michael Jordan with particles" rel="noreferrer noopener">Jordan</a>
-            </span>
-          </li>
-        </ul>
-      </div>
-      <!-- ABOUT -->
-      <div class="content__block about">
-        <h3 class="block__headline animatedIn"><span>About</span></h3>
-        <p class="animatedIn"><span>Hello there.</span></p>
-        <p class="animatedIn"><span>I'm Lucas, freelance interactive developer. I'm from France and currently based in Vienna, Austria.</span></p>
-        <p class="animatedIn"><span>I focus on merging ideas, design, graphics with programming in order to create visual and interactive digital
-        experiences. I have a keen interest in working with cut-edge technologies to bring to life innovative user experiences.</span></p>
-        <p class="animatedIn"><span>You can connect with me on <a href="https://github.com/lmarti17" class="link" target="_blank" title="Github" rel="noreferrer noopener">Github</a>, <a href="https://www.linkedin.com/in/lucas-martin-02b5b290/" class="link" target="_blank" title="Linkedin" rel="noreferrer noopener">Linkedin</a> or <a href="https://twitter.com/lmarti17" class="link" target="_blank" title="Twitter" rel="noreferrer noopener">Twitter</a>.</span></p>
-        <p class="animatedIn"><span>I'm avaible for freelance. Feel free to contact me at <i id="mail" class="link">contact@lucasmartin.fr</i>.</span></p>
-      </div>
+            <li class="animatedIn">
+              <span>
+                <module href="/partials/arrowSvg.html"></module>
+                <a
+                  href="https://lmarti17.github.io/Michael-Jordan-Particles"
+                  target="_blank"
+                  class="link"
+                  title="Michael Jordan with particles"
+                  rel="noreferrer noopener"
+                  >Jordan</a
+                >
+              </span>
+            </li>
+          </ul>
+        </div>
+        <!-- ABOUT -->
+        <div class="content__block about">
+          <h3 class="block__headline animatedIn"><span>About</span></h3>
+          <p class="animatedIn"><span>Hello there.</span></p>
+          <p class="animatedIn">
+            <span
+              >I'm Lucas, freelance interactive developer. I'm from France and
+              currently based in Vienna, Austria.</span
+            >
+          </p>
+          <p class="animatedIn">
+            <span
+              >I focus on merging ideas, design, graphics with programming in
+              order to create visual and interactive digital experiences. I have
+              a keen interest in working with cut-edge technologies to bring to
+              life innovative user experiences.</span
+            >
+          </p>
+          <p class="animatedIn">
+            <span
+              >You can connect with me on
+              <a
+                href="https://github.com/lmarti17"
+                class="link"
+                target="_blank"
+                title="Github"
+                rel="noreferrer noopener"
+                >Github</a
+              >,
+              <a
+                href="https://www.linkedin.com/in/lucas-martin-02b5b290/"
+                class="link"
+                target="_blank"
+                title="Linkedin"
+                rel="noreferrer noopener"
+                >Linkedin</a
+              >
+              or
+              <a
+                href="https://twitter.com/lmarti17"
+                class="link"
+                target="_blank"
+                title="Twitter"
+                rel="noreferrer noopener"
+                >Twitter</a
+              >.</span
+            >
+          </p>
+          <p class="animatedIn">
+            <span
+              >I'm avaible for freelance. Feel free to contact me at
+              <i id="mail" class="link">contact@lucasmartin.fr</i>.</span
+            >
+          </p>
+        </div>
 
-      <p class="live-since animatedIn"><span>"This page is live since <em id="live-since-day">0</em> hours"</span></p>
+        <p class="live-since animatedIn">
+          <span
+            >"This page is live since
+            <em id="live-since-day">0</em> hours"</span
+          >
+        </p>
+      </div>
     </div>
-  </div>
-  <script type="module" src="./scripts/background.js"></script>
-  <script type="module" src="./scripts/index.js"></script>
-
-</body>
+    <div id="grain"></div>
+    <script type="module" src="./scripts/background.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
+  </body>
 </html>

@@ -145,3 +145,11 @@ body {
 #defaultCanvas0 {
   opacity: 0;
 }
+
+#grain{
+  background: url('./assets/grain.png') 0 0/50px;
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}

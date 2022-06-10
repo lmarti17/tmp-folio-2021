@@ -120,7 +120,7 @@ class App {
     // UPDATE LIVE SINCE
     let tag = document.getElementById("live-since-day");
 
-    const baseDate = new Date("10/10/2021");
+    const baseDate = new Date("01/04/2022");
     const nowDate = new Date();
     tag.innerHTML = Math.floor((nowDate - baseDate) / 1000 / 60 / 60);
 
@@ -195,7 +195,7 @@ class App {
       .fromTo(
         ".animatedIn span",
         {
-          y: "100%",
+          y: "101%",
         },
         {
           y: 0,
