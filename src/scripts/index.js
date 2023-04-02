@@ -2,7 +2,8 @@ import fitty from "fitty";
 import { gsap } from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import { TextPlugin } from "gsap/TextPlugin";
-import sketch from "./background";
+// import sketch from "./background";
+import Experience from "./webgl";
 
 const isMobile = window.innerWidth < 768;
 const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
@@ -13,6 +14,8 @@ gsap.registerPlugin(TextPlugin);
 function numberMap(num, in_min, in_max, out_min, out_max) {
   return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
 }
+
+const lerp = (a, b, n) => (1 - n) * a + n * b;
 
 function disableBodyScroll() {
   document.body.style.top = `-${window.scrollY}px`;
@@ -87,12 +90,22 @@ class App {
     this.wH = window.innerHeight;
     this.wW = window.innerWidth;
 
+    this.target = { x: 0.5, y: 0.5 };
+    this.cursor = {
+      x: 0,
+      y: 0,
+    };
+    this.speed = 0.2;
+
     this.prepareDOM();
   }
 
   prepareDOM() {
     // init shader
-    this.p5sketch = new p5(sketch);
+    // this.p5sketch = new p5(sketch);
+    this.experience = new Experience();
+
+    return;
     // TITLES
     this.title = document.getElementById("title");
 
@@ -117,7 +130,7 @@ class App {
       },
     });
 
-    // UPDATE LIVE SINCE
+    // * UPDATE LIVE SINCE
     let tag = document.getElementById("live-since-day");
 
     const baseDate = new Date("01/04/2022");
@@ -126,6 +139,7 @@ class App {
 
     // Launch animation when DOM is ready
     this.animate();
+    // this.raf = requestAnimationFrame(this.render);
   }
 
   animate() {
@@ -146,9 +160,9 @@ class App {
       onStart: () => {
         gsap.set("#home", { opacity: 1 });
       },
-      onComplete: () => this.p5sketch.loop(),
+      // onComplete: () => this.p5sketch.loop(),
     });
-    tl.to("#defaultCanvas0", { opacity: 1, ease: "opacity", duration: 2 });
+    tl.to(".webgl-canvas", { opacity: 1, ease: "opacity", duration: 2 });
     tl.fromTo(
       ".title__fragments",
       { y: isMobile ? this.wH / 2 : this.wH - 150 },
@@ -250,6 +264,31 @@ class App {
       }
     });
   };
+
+  // handleMouseMove = ({ clientX, clientY }) => {
+  //   this.target.x = clientX / window.innerWidth;
+  //   this.target.y = clientY / window.innerHeight;
+  //   if (!this.raf) this.raf = requestAnimationFrame(this.render);
+  // };
+
+  // render = () => {
+  //   console.log("render");
+  //   this.cursor.x = lerp(this.cursor.x, this.target.x, this.speed);
+  //   this.cursor.y = lerp(this.cursor.y, this.target.y, this.speed);
+  //   document.documentElement.style.setProperty("--cursor-x", this.cursor.x);
+  //   document.documentElement.style.setProperty("--cursor-y", this.cursor.y);
+  //   const delta = Math.sqrt(
+  //     Math.pow(this.target.x - this.cursor.x, 2) +
+  //       Math.pow(this.target.y - this.cursor.y, 2)
+  //   );
+  //   if (delta < 0.001) {
+  //     cancelAnimationFrame(this.raf);
+  //     this.raf = null;
+  //     return;
+  //   }
+
+  //   this.raf = requestAnimationFrame(this.render);
+  // };
 
   // Handle email click
   // copy email address

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Parcel starter including scss and hmr",
   "scripts": {
-    "dev": "parcel ./src/index.html --port 3000",
+    "dev": "parcel ./src/index.html --port 3000 --open",
     "clear": "rm -rf ./dist node_modules/.cache ./.parcel-cache",
     "build": "npm run clear && parcel build src/index.html --no-cache --no-source-maps",
     "build-vercel": "npm run clear && parcel build src/index.html --no-cache --no-source-maps"
@@ -16,7 +16,9 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "dependencies": {
     "fitty": "^2.3.5",
-    "gsap": "file:gsap-bonus.tgz"
+    "gsap": "file:gsap-bonus.tgz",
+    "lil-gui": "^0.17.0",
+    "three": "^0.144.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

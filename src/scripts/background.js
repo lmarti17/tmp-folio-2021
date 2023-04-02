@@ -1,5 +1,5 @@
-import vert from "../shaders/shader.vert";
-import frag from "../shaders/shader.frag";
+// import vert from "../shaders/shader.vert";
+// import frag from "../shaders/shader.frag";
 
 export default function sketch(p5) {
   // a shader variable
