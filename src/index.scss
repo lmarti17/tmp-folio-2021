@@ -270,6 +270,14 @@
       overflow: hidden;
       font-family: var(--font-neutral);
 
+      b {
+        text-decoration: line-through;
+        font-weight: normal;
+      }
+      i {
+        text-decoration: none;
+      }
+
       @include breakpoint($bp-xxSmall) {
         text-align: center;
       }
