@@ -120,7 +120,7 @@ class App {
     // UPDATE LIVE SINCE
     let tag = document.getElementById("live-since-day");
 
-    const baseDate = new Date("01/04/2022");
+    const baseDate = new Date("03/20/2024 23:00");
     const nowDate = new Date();
     tag.innerHTML = Math.floor((nowDate - baseDate) / 1000 / 60 / 60);
 
