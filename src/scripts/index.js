@@ -129,17 +129,26 @@ class App {
   }
 
   animate() {
+    // CustomEase.create("title", "0.8, 0, 0.2, 1");
     CustomEase.create(
       "title",
-      "M0,0 C0.054,0.148 0.139,0.414 0.31,0.492 0.45,0.556 0.49,0.504 0.586,0.56 0.644,0.594 0.686,0.876 0.788,0.944 0.894,1.014 0.98,1 1,1 "
+      "M0,0 C0.054,0.148 0.065,0.401 0.23,0.492 0.38,0.574 0.441,0.509 0.549,0.537 0.682,0.571 0.634,0.842 0.777,0.932 0.884,0.999 0.98,1 1,1"
     );
 
-    CustomEase.create("opacity", ".3,.8,.55,1");
+    CustomEase.create(
+      "stagger",
+      "M0,0 C0,0 0.455,0.118 0.481,0.544 0.493,0.747 0.546,0.975 1,1"
+    );
+    CustomEase.create(
+      "custom",
+      "M0,0 C0.272,0 0.543,0.682 0.66,0.844 0.743,0.959 0.744,1 1,1 "
+    );
 
     let tl = gsap.timeline({
       defaults: {
         stagger: {
-          each: 0.02,
+          each: 0.04,
+          ease: "custom",
           from: "edges",
         },
       },
@@ -148,27 +157,23 @@ class App {
       },
       onComplete: () => this.p5sketch.loop(),
     });
-    tl.to("#defaultCanvas0", { opacity: 1, ease: "opacity", duration: 2 });
+    tl.to("#defaultCanvas0", {
+      opacity: 1,
+      ease: "opacity",
+      duration: 2,
+    });
     tl.fromTo(
       ".title__fragments",
-      { y: isMobile ? this.wH / 2 : this.wH - 150 },
+      { y: isMobile ? this.wH : this.wH, yPercent: -100 },
       {
         y: 0,
+        yPercent: 0,
         ease: "title",
         duration: 2,
+        delay: 1,
       },
-      "<=0.25"
+      "<"
     )
-      .fromTo(
-        ".title__fragments",
-        { opacity: 0 },
-        {
-          opacity: 1,
-          ease: "opacity",
-          duration: 1.5,
-        },
-        "<=0"
-      )
       .fromTo(
         ".subtitle__fragments",
         {
