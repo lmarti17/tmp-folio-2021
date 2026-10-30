@@ -41,7 +41,7 @@ function charming(
     setClassName = function (index) {
       return "char" + index;
     },
-  } = {}
+  } = {},
 ) {
   element.normalize();
   let index = 1;
@@ -118,11 +118,11 @@ class App {
     });
 
     // UPDATE LIVE SINCE
-    let tag = document.getElementById("live-since-day");
+    // let tag = document.getElementById("live-since-day");
 
-    const baseDate = new Date("09/24/2025 14:05");
-    const nowDate = new Date();
-    tag.innerHTML = Math.floor((nowDate - baseDate) / 1000 / 60 / 60);
+    // const baseDate = new Date("09/24/2025 14:05");
+    // const nowDate = new Date();
+    // tag.innerHTML = Math.floor((nowDate - baseDate) / 1000 / 60 / 60);
 
     // Launch animation when DOM is ready
     this.animate();
@@ -132,16 +132,16 @@ class App {
     // CustomEase.create("title", "0.8, 0, 0.2, 1");
     CustomEase.create(
       "title",
-      "M0,0 C0.054,0.148 0.065,0.401 0.23,0.492 0.38,0.574 0.441,0.509 0.549,0.537 0.682,0.571 0.634,0.842 0.777,0.932 0.884,0.999 0.98,1 1,1"
+      "M0,0 C0.054,0.148 0.065,0.401 0.23,0.492 0.38,0.574 0.441,0.509 0.549,0.537 0.682,0.571 0.634,0.842 0.777,0.932 0.884,0.999 0.98,1 1,1",
     );
 
     CustomEase.create(
       "stagger",
-      "M0,0 C0,0 0.455,0.118 0.481,0.544 0.493,0.747 0.546,0.975 1,1"
+      "M0,0 C0,0 0.455,0.118 0.481,0.544 0.493,0.747 0.546,0.975 1,1",
     );
     CustomEase.create(
       "custom",
-      "M0,0 C0.272,0 0.543,0.682 0.66,0.844 0.743,0.959 0.744,1 1,1 "
+      "M0,0 C0.272,0 0.543,0.682 0.66,0.844 0.743,0.959 0.744,1 1,1 ",
     );
 
     let tl = gsap.timeline({
@@ -172,7 +172,7 @@ class App {
         duration: 2,
         delay: 1,
       },
-      "<"
+      "<",
     )
       .fromTo(
         ".subtitle__fragments",
@@ -195,7 +195,7 @@ class App {
             each: 0.1,
           },
         },
-        "-=0.20"
+        "-=0.20",
       )
       .fromTo(
         ".animatedIn span",
@@ -211,13 +211,13 @@ class App {
             each: 0.1,
           },
         },
-        "-=0.2"
+        "-=0.2",
       );
   }
 
   addEventListeners() {
     this.titleLetters = Array.from(
-      document.getElementsByClassName("title__fragments")
+      document.getElementsByClassName("title__fragments"),
     );
     this.titleLettersCoords = this.titleLetters.map((el) => {
       let coords = el.getBoundingClientRect();
@@ -238,7 +238,7 @@ class App {
   handleTitleAnimation = ({ pageX, pageY }) => {
     this.titleLettersCoords.forEach((el, index) => {
       let distance = Math.sqrt(
-        Math.pow(el.x - pageX, 2) + Math.pow(el.y - pageY, 2)
+        Math.pow(el.x - pageX, 2) + Math.pow(el.y - pageY, 2),
       );
       if (distance < 350) {
         gsap.to(this.titleLetters[index], {
